@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+
+            margin: 0;
+            min-height: 100vh;
+            background-color: #ffd1dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 19px;
+            line-height: 1.2;
+            margin: 0;
+            margin-top: 30px;
+            text-align: left;
+            font-weight: 300;
+            padding-left: 24px;
+            /* moves text more to left */
+        }
+
+
+        .page {
+            width: 360px;
+            height: 660px;
+            background-color: #f6407a;
+            border-radius: 22px;
+            position: relative;
+            /* 🔑 anchor for overlap */
+            overflow: visible;
+            /* 🔓 allow overlap */
+            margin-top: -60px;
+        }
+
+        .sub-text {
+            font-size: 12px;
+            color: #8b3a62;
+            margin: 10px 0 14px;
+            font-style: italic;
+        }
+
+        .play-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .play {
+            font-size: 30px;
+            /* Play button size */
+            cursor: pointer;
+            color: #b03060;
+            line-height: 1;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: none;
+            border: none;
+            outline: none;
+            padding: 0;
+        }
+
+        .side-text {
+            font-size: 12px;
+            color: #8b3a62;
+            font-style: italic;
+        }
+
+        /* Move "next" to very bottom and clickable */
+        .next {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            color: #b03060;
+            cursor: pointer;
+
+        }
+
+        /* ❤️ HEART ANIMATION */
+        .heart {
+            position: absolute;
+            top: calc(100% - 80px);
+            width: 26px;
+            height: 26px;
+            opacity: 0;
+            pointer-events: none;
+            animation: gentleRise 9s infinite ease-in-out;
+        }
+
+        .heart svg {
+            width: 170%;
+            height: 170%;
+            fill: #eb9fbb;
+        }
+
+
+
+        /* Hearts spread horizontally with different delays */
+        .heart1 {
+            left: 90%;
+            animation-delay: 0s;
+        }
+
+        .heart2 {
+            left: 30%;
+            animation-delay: 1s;
+        }
+
+        .heart3 {
+            left: 60%;
+            animation-delay: 2s;
+        }
+
+        .heart4 {
+            left: -2%;
+            animation-delay: 3s;
+        }
+
+        .heart5 {
+            left: 30%;
+            animation-delay: 4s;
+        }
+
+        .heart6 {
+            left: 60%;
+            animation-delay: 5s;
+        }
+
+        .heart7 {
+            left: 80%;
+            animation-delay: 6s;
+        }
+
+        .heart8 {
+            left: -5%;
+            animation-delay: 7s;
+        }
+
+        .heart9 {
+            left: 25%;
+            animation-delay: 8s;
+        }
+
+        @keyframes gentleRise {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.6;
+            }
+
+            35% {
+                transform: translateY(-110px) scale(1.1);
+                opacity: 0.5;
+            }
+
+            80% {
+                transform: translateY(-535px) scale(0.9);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<div class="page">
+
+    <!-- Floating hearts using SVG for consistent design -->
+    <div class="heart heart1">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 
+                     3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
+                     3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+    </div>
+
+    <div class="heart heart2">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 
+                     3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
+                     3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+    </div>
+
+    <div class="heart heart3">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 
+                     3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
+                     3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+    </div>
+
+    <div class="heart heart4">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 
+                     3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
+                     3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+    </div>
+
+    <div class="heart heart5">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 
+                     3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
+                     3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+    </div>
+    <div class="heart heart6">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 
+                     3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
+                     3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+    </div>
+    <div class="heart heart7">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 
+                     3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
+                     3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+    </div>
+    <div class="heart heart8">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 
+                     3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
+                     3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+    </div>
+    <div class="heart heart9">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 
+                     3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
+                     3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+    </div>
+    <h2>
+        𝑇𝑜 𝑚𝑦 𝑠𝑤𝑒𝑒𝑡𝑒𝑠𝑡 𝑯𝒖𝒃𝒃𝒚, 💕 <br><br>
+        𝑯𝑨𝑷𝑷𝒀 𝑩𝑰𝑹𝑻𝑯𝑫𝑨𝒀, 𝑴𝒀 𝑳𝑶𝑽𝑬!❤️<br>
+        𝑀𝑎𝑦 𝐴𝑙𝑙𝑎ℎ 𝑏𝑙𝑒𝑠𝑠 𝑦𝑜𝑢 𝑤𝑖𝑡ℎ 𝐻𝑖𝑠 𝑒𝑛𝑑𝑙𝑒𝑠𝑠 𝑏𝑙𝑒𝑠𝑠𝑖𝑛𝑔𝑠 𝑎𝑛𝑑 ℎ𝑎𝑝𝑝𝑖𝑛𝑒𝑠𝑠.<br>
+        𝑀𝑎𝑦 𝐻𝑒 𝑔𝑢𝑖𝑑𝑒 𝑦𝑜𝑢 𝑡𝑜 𝑠𝑢𝑐𝑐𝑒𝑠𝑠 𝑖𝑛 𝑒𝑣𝑒𝑟𝑦 𝑠𝑡𝑒𝑝 𝑜𝑓 𝑦𝑜𝑢𝑟 𝑙𝑖𝑓𝑒, 𝑎𝑛𝑑
+        𝑚𝑎𝑘𝑒 𝑚𝑒 𝑡ℎ𝑒 𝑝𝑒𝑎𝑐𝑒 𝑜𝑓 𝑦𝑜𝑢𝑟 ℎ𝑒𝑎𝑟𝑡.<br>
+        𝐸𝑣𝑒𝑟𝑦 𝑑𝑎𝑦 𝑤𝑖𝑡ℎ 𝑦𝑜𝑢 ℎ𝑎𝑠 𝑏𝑒𝑒𝑛 𝑎 𝑏𝑙𝑒𝑠𝑠𝑖𝑛𝑔 𝑎𝑙𝑤𝑎𝑦𝑠 𝑠𝑜 𝑠𝑝𝑒𝑐𝑖𝑎𝑙, 𝑗𝑢𝑠𝑡
+        𝑙𝑖𝑘𝑒 𝑦𝑜𝑢 𝑎𝑟𝑒 𝑡𝑜 𝑚𝑒.
+        𝐼 𝑐𝑜𝑢𝑙𝑑𝑛’𝑡 𝑎𝑠𝑘 𝑓𝑜𝑟 𝑎𝑛𝑦𝑡ℎ𝑖𝑛𝑔 𝑚𝑜𝑟𝑒 𝑡ℎ𝑎𝑛 𝑡ℎ𝑖𝑠.<br>
+        𝑰 𝑳𝑶𝑽𝑬 𝒀𝑶𝑼 𝑺𝑶 𝑴𝑼𝑪𝑯, 𝑎𝑛𝑑 𝐼 𝑤𝑖𝑠ℎ 𝐼 𝑐𝑜𝑢𝑙𝑑 𝑒𝑥𝑝𝑟𝑒𝑠𝑠 𝑖𝑡 𝑓𝑢𝑙𝑙𝑦 𝑖𝑛 𝑤𝑜𝑟𝑑𝑠.<br>
+        𝑌𝑜𝑢 𝑚𝑒𝑎𝑛 𝑡ℎ𝑒 𝑤𝑜𝑟𝑙𝑑 𝑡𝑜 𝑚𝑒.<br>
+        𝑀𝑦 𝑑𝑎𝑦 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤𝑖𝑡ℎ 𝑦𝑜𝑢, 𝑎𝑛𝑑 𝑦𝑜𝑢’𝑟𝑒 𝑎𝑙𝑤𝑎𝑦𝑠 𝑜𝑛 𝑚𝑦 𝑚𝑖𝑛𝑑.<br>
+        𝐼 𝑤𝑎𝑛𝑡 𝑚𝑦 𝑑𝑎𝑦𝑠 𝑡𝑜 𝑏𝑒𝑔𝑖𝑛 𝑎𝑛𝑑 𝑒𝑛𝑑 𝑤𝑖𝑡ℎ 𝑦𝑜𝑢, 𝑓𝑜𝑟 𝑚𝑦 𝑤ℎ𝑜𝑙𝑒 𝑙𝑖𝑓𝑒.<br>
+        𝐼 𝑚𝑖𝑠𝑠 𝑦𝑜𝑢 𝑠𝑜 𝑚𝑢𝑐ℎ, 𝑒𝑣𝑒𝑟𝑦 𝑑𝑎𝑦 𝑤𝑖𝑡ℎ𝑜𝑢𝑡 𝑦𝑜𝑢 𝑖𝑠 𝑑𝑖𝑓𝑓𝑖𝑐𝑢𝑙𝑡 𝑓𝑜𝑟 𝑚𝑒.<br>
+        𝑀𝑎𝑦 𝐴𝑙𝑙𝑎ℎ 𝑏𝑟𝑖𝑛𝑔 𝑢𝑠 𝑡𝑜𝑔𝑒𝑡ℎ𝑒𝑟 𝑓𝑜𝑟𝑒𝑣𝑒𝑟. 💕<br><br>
+        𝑭𝒐𝒓𝒆𝒗𝒆𝒓 𝒂𝒏𝒅 𝑨𝒍𝒘𝒂𝒚𝒔,<br><br>
+        𝒚𝒐𝒖𝒓 𝑾𝒊𝒇𝒆𝒚 🌸<br>
+
+
+    </h2>
+
+
+    <!-- Clickable next at bottom -->
+    <div class="next" onclick="goNext()">Next →</div>
+
+</div>
+
+
+
+<script>
+    function goNext() {
+        // Navigate to the next page
+        window.location.href = "next17.html"; // replace with your next page file
+    }
+</script>
+</body>
+
+</html>

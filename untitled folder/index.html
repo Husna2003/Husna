@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    background-color: #ffd1dc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+iframe {
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    border: none;
+}
+
+#musicToggle {
+    position: absolute;
+    left: 50%;
+    top: calc(57% + 20px);
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+#musicToggle svg {
+    width: 32px;
+    height: 32px;
+    fill: #b03060; /* pink */
+}
+
+
+
+</style>
+</head>
+
+<body>
+    <!-- Preload all images -->
+<link rel="preload" href="love.jpeg" as="image">
+<link rel="preload" href="handsomw.jpeg" as="image">
+<link rel="preload" href="life.jpeg" as="image">
+<link rel="preload" href="mammaa.jpeg" as="image">
+<link rel="preload" href="mess.jpeg" as="image">
+<link rel="preload" href="mine1.jpeg" as="image">
+<link rel="preload" href="mine3.jpeg" as="image">
+<link rel="preload" href="muahh.jpeg" as="image">
+<link rel="preload" href="sleep.jpeg" as="image">
+<link rel="preload" href="ani.jpeg" as="image">
+<link rel="preload" href="cutw.jpeg" as="image">
+
+<!-- 🎵 MUSIC -->
+<audio id="bgMusic" preload="auto" loop>
+    <source src="mysong.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- 🔊 TOGGLE BUTTON -->
+<div id="musicToggle" onclick="toggleMusic()">
+    <svg id="playIcon" viewBox="0 0 24 24">
+        <polygon points="5,3 19,12 5,21"></polygon>
+  </svg>
+</div>
+
+
+
+<iframe id="frame" src="next18.html" onload="checkPage()"></iframe>
+
+
+<script>
+const pages = [
+    "next18.html",
+  "nextt.html",
+  "next.html",
+  "next1.html",
+  "next2.html",
+  "next3.html",
+  "next4.html",
+  "next5.html",
+  "next6.html",
+  "next7.html",
+  "next8.html",
+  "next9.html",
+  "next10.html",
+  "next11.html",
+  "next12.html",
+  "next13.html",
+  "next14.html",
+  "next15.html",
+  "next16.html",
+  "next17.html",
+];
+
+let current = 0;
+
+/* 🎵 MUSIC CONTROL */
+const music = document.getElementById("bgMusic");
+const toggle = document.getElementById("musicToggle");
+let musicStarted = false;
+
+function startMusic() {
+    if (!musicStarted) {
+        music.volume = 0.5;
+        music.play().catch(()=>{});
+        musicStarted = true;
+    }
+}
+
+function toggleMusic() {
+    const icon = document.getElementById("playIcon");
+
+    if (music.paused) {
+        music.play().catch(()=>{});
+        icon.innerHTML = `<rect x="5" y="4" width="4" height="16"></rect>
+                          <rect x="15" y="4" width="4" height="16"></rect>`;
+    } else {
+        music.pause();
+        icon.innerHTML = `<polygon points="5,3 19,12 5,21"></polygon>`;
+    }
+}
+
+
+
+/* ➡️ NEXT PAGE */
+function goNext() {
+    startMusic();   // ✅ start music on first interaction
+    if (current < pages.length - 1) {
+        current++;
+        document.getElementById("frame").src = pages[current];
+    }
+}
+function checkPage() {
+    const frame = document.getElementById("frame");
+    const toggle = document.getElementById("musicToggle");
+
+    try {
+        const page = frame.contentWindow.location.pathname;
+
+        if (page.includes("nextt.html")) {
+            toggle.style.display = "block";  // show only first page
+        } else {
+            toggle.style.display = "none";   // hide on others
+        }
+    } catch (e) {
+        toggle.style.display = "none"; 
+    }
+}
+
+
+</script>
+<script>
+
+document.body.style.opacity = "0";
+window.onload = () => {
+    document.body.style.transition = "opacity 0.4s ease";
+    document.body.style.opacity = "1";
+};
+
+function goNext(url) {
+    document.body.style.opacity = "0";
+    setTimeout(() => {
+        window.location.href = url;
+    }, 300);
+}
+</script>
+
+</body>
+</html>
